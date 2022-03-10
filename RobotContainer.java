@@ -59,7 +59,7 @@ public class RobotContainer {
     btn12 = new JoystickButton(stick, 12);
     btn1 = new JoystickButton(stick, 1);
     try {
-      l1 = new WPI_TalonSRX(Constants.l1);
+      l1 = new WPI_VictorSPX(Constants.l1);
       l2 = new WPI_TalonSRX(Constants.l2);
       r1 = new WPI_TalonSRX(Constants.r1);
       r2 = new WPI_TalonSRX(Constants.r2);
