@@ -21,5 +21,5 @@ public final class Constants {
     public static final int v_left = 2;
     public static final int v_middle = 3;
     public static final int v_right = 4;
-    public static final int module_number = 1;
+    // public static final int module_number = 1;
 }
