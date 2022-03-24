@@ -4,6 +4,8 @@
 
 package frc.robot.commands;
 
+import java.time.chrono.ThaiBuddhistChronology;
+
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -11,14 +13,16 @@ import frc.robot.RobotContainer;
 
 public class DriveCommand extends CommandBase {
   private DifferentialDrive drive;
+  private MotorControllerGroup leftControllerGroup;
+  private MotorControllerGroup rightControllerGroup;
   /** Creates a new DriveCommand. */
   public DriveCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    MotorControllerGroup leftControllerGroup = new MotorControllerGroup(RobotContainer.l1, RobotContainer.l2);
-    MotorControllerGroup righControllerGroup = new MotorControllerGroup(RobotContainer.r1, RobotContainer.r2);
-    righControllerGroup.setInverted(true);
+    this.leftControllerGroup = new MotorControllerGroup(RobotContainer.l1, RobotContainer.l2);
+    this.rightControllerGroup = new MotorControllerGroup(RobotContainer.r1, RobotContainer.r2);
 
-    drive = new DifferentialDrive(leftControllerGroup, righControllerGroup);
+    this.leftControllerGroup.setInverted(true);
+    drive = new DifferentialDrive(this.leftControllerGroup, this.rightControllerGroup);
   }
 
   // Called when the command is initially scheduled.

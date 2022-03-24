@@ -48,39 +48,39 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the button bindings
-    c = new Compressor(PneumaticsModuleType.CTREPCM);
-    c.enableDigital();
+    // // Configure the button bindings
+    // c = new Compressor(1, PneumaticsModuleType.CTREPCM);
+    // c.enableDigital();
     
-    driveCommand = new DriveCommand();
     stick = new Joystick(0);
     btn2 = new JoystickButton(stick, 2);
     btn8 = new JoystickButton(stick, 8);
     btn10 = new JoystickButton(stick, 10);
     btn12 = new JoystickButton(stick, 12);
     btn1 = new JoystickButton(stick, 1);
-      l1 = new WPI_VictorSPX(Constants.l1);
-      l2 = new WPI_VictorSPX(Constants.l2);
-      r1 = new WPI_VictorSPX(Constants.r1);
-      r2 = new WPI_VictorSPX(Constants.r2);
-    System.out.println("LEFT----------------------------------------------------------------");
-    leftValve = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.v_left);
-    System.out.println("LEFT----------------------------------------------------------------");
-    System.out.println("MID----------------------------------------------------------------");
-    middleValve = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.v_middle);
-    System.out.println("MID----------------------------------------------------------------");
-    System.out.println("RIGHT----------------------------------------------------------------");
+    l1 = new WPI_VictorSPX(Constants.l1);
+    l2 = new WPI_VictorSPX(Constants.l2);
+    r1 = new WPI_VictorSPX(Constants.r1);
+    r2 = new WPI_VictorSPX(Constants.r2);
+    driveCommand = new DriveCommand();
 
-    rightValve = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.v_right);
-    System.out.println("RIGHT----------------------------------------------------------------");
-    rightValve.set(false);
-    middleValve.set(false);
-    leftValve.set(false);
-    fireAll = new FireCannon(new Solenoid[] {leftValve, middleValve, rightValve});
-    fireLeft = new FireCannon(new Solenoid[]{leftValve});
-    fireMiddle = new FireCannon(new Solenoid[]{middleValve});
-    fireRight = new FireCannon(new Solenoid[]{rightValve});
-    d = new DifferentialDrive(l1, r1);
+    // System.out.println("LEFT----------------------------------------------------------------");
+    // leftValve = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.v_left);
+    // System.out.println("LEFT----------------------------------------------------------------");
+    // System.out.println("MID----------------------------------------------------------------");
+    // middleValve = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.v_middle);
+    // System.out.println("MID----------------------------------------------------------------");
+    // System.out.println("RIGHT----------------------------------------------------------------");
+
+    // rightValve = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.v_right);
+    // System.out.println("RIGHT----------------------------------------------------------------");
+    // rightValve.set(false);
+    // middleValve.set(false);
+    // leftValve.set(false);
+    // fireAll = new FireCannon(new Solenoid[] {leftValve, middleValve, rightValve});
+    // fireLeft = new FireCannon(new Solenoid[]{leftValve});
+    // fireMiddle = new FireCannon(new Solenoid[]{middleValve});
+    // fireRight = new FireCannon(new Solenoid[]{rightValve});
     configureButtonBindings();
   }
 
@@ -92,12 +92,12 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
    // c.start();
-    System.out.println(c.enabled());
+    // System.out.println(c.enabled());
     btn2.whenPressed(driveCommand);
-    btn1.whenPressed(fireAll);
-    btn8.whenPressed(fireLeft);
-    btn10.whenPressed(fireMiddle);
-    btn12.whenPressed(fireRight);
+    // btn1.whenPressed(fireAll);
+    // btn8.whenPressed(fireLeft);
+    // btn10.whenPressed(fireMiddle);
+    // btn12.whenPressed(fireRight);
   }
 
   /**
