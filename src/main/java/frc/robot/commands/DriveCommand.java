@@ -21,7 +21,7 @@ public class DriveCommand extends CommandBase {
     this.leftControllerGroup = new MotorControllerGroup(RobotContainer.l1, RobotContainer.l2);
     this.rightControllerGroup = new MotorControllerGroup(RobotContainer.r1, RobotContainer.r2);
 
-    this.leftControllerGroup.setInverted(true);
+    this.rightControllerGroup.setInverted(true);
     drive = new DifferentialDrive(this.leftControllerGroup, this.rightControllerGroup);
   }
 
@@ -33,7 +33,7 @@ public class DriveCommand extends CommandBase {
   @Override
   
   public void execute() {
-    drive.arcadeDrive(RobotContainer.stick.getY(), RobotContainer.stick.getX());
+    drive.arcadeDrive(RobotContainer.stick.getY() * -1, RobotContainer.stick.getX());
   }
 
   // Called once the command ends or is interrupted.
